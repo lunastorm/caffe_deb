@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ ! -d /usr/local/cuda ]
+then
+    wget http://developer.download.nvidia.com/compute/cuda/6_0/rel/installers/cuda_6.0.37_linux_64.run -O /tmp/cuda.run
+    chmod 755 /tmp/cuda.run
+    /tmp/cuda.run -silent -toolkit -override
+    echo "/usr/local/cuda/lib64" > /etc/ld.so.conf.d/cuda.conf
+fi
+
+ldconfig
+pip install -r /usr/caffe-python/requirements.txt
+
+exit 0

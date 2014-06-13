@@ -1,0 +1,9 @@
+Package: caffe
+Version: $VERSION
+Depends: python-pip, libprotobuf8, libgoogle-glog0, libsnappy1, libhdf5-dev, libleveldb1, libopencv-core2.4, libopencv-highgui2.4, libatlas-base-dev, libboost-python1.54.0, gfortran
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: lunastorm (lunastorm@zillians.com)
+Description: caffe package
+
