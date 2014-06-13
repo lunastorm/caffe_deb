@@ -23,7 +23,8 @@ $(ROOT): caffe/distribute debian/control
 
 caffe/distribute: caffe
 	cp Makefile.config caffe
-	sed -i -e 's/\/usr\/bin\/g++/\/usr\/bin\/g++-4.6/' caffe/Makefile
+	./build_env.sh
+	sed -i -e 's/\/usr\/bin\/g++$$/\/usr\/bin\/g++-4.6/' caffe/Makefile
 	cd caffe ; make -j$(shell nproc) all && make -j$(shell nproc) pycaffe && make distribute
 
 caffe:
