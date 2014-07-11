@@ -1,6 +1,6 @@
 Package: caffe
 Version: $VERSION
-Depends: pkg-config, libfreetype6-dev, python-pip, python-dev, libprotobuf8, libgoogle-glog0, libsnappy1, libhdf5-dev, libleveldb1, libopencv-core2.4, libopencv-highgui2.4, libatlas-base-dev, libboost-python1.54.0, gfortran
+Depends: pkg-config, libfreetype6-dev, python-pip, python-dev, libprotobuf8, libgoogle-glog0, libsnappy1, libhdf5-dev, libleveldb1, libopencv-core2.4, libopencv-highgui2.4, libatlas-base-dev, libboost-python1.54.0, gfortran, liblmdb0
 Section: base
 Priority: optional
 Architecture: amd64

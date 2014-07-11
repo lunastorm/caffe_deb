@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PACKAGES="python-pip python-dev g++-4.6 gfortran protobuf-compiler libprotobuf-dev libatlas-base-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev libgoogle-glog-dev"
+PACKAGES="python-pip python-dev g++-4.6 gfortran protobuf-compiler libprotobuf-dev libatlas-base-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev libgoogle-glog-dev liblmdb-dev"
 
 dpkg -L $PACKAGES > /dev/null
 if [ "$?" != "0" ]
