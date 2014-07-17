@@ -10,8 +10,11 @@ all:	deb
 
 deb:	$(ROOT)
 	dpkg-deb --build $(ROOT)
+
+wheelhouse:
+	pip wheel -r caffe/python/requirements.txt
 	
-$(ROOT): caffe/distribute debian/control
+$(ROOT): caffe/distribute debian/control wheelhouse
 	mkdir -p $(ROOT)/$(DEST)
 	mkdir -p $(ROOT)/DEBIAN
 	cp -rf debian/* $(ROOT)/DEBIAN/
@@ -20,6 +23,7 @@ $(ROOT): caffe/distribute debian/control
 	mkdir -p $(ROOT)/$(DEST)/lib/python2.7/dist-packages
 	mv $(ROOT)/$(DEST)/python/caffe $(ROOT)/$(DEST)/lib/python2.7/dist-packages
 	mv $(ROOT)/$(DEST)/python $(ROOT)/$(DEST)/caffe-python
+	cp -rf wheelhouse $(ROOT)/$(DEST)/caffe-wheelhouse
 
 caffe/distribute: caffe
 	cp Makefile.config caffe
@@ -37,6 +41,11 @@ clean-caffe:
 .PHONY:
 clean-deb:
 	rm -rf tmp
+
 .PHONY:
-clean: clean-caffe clean-deb
+clean-wheelhouse:
+	rm -rf wheelhouse
+
+.PHONY:
+clean: clean-caffe clean-deb clean-wheelhouse
 

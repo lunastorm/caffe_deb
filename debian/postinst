@@ -9,6 +9,7 @@ then
 fi
 
 ldconfig
-pip install -r /usr/caffe-python/requirements.txt
+pip install wheel
+pip install --upgrade --use-wheel --no-index --find-links=/usr/caffe-wheelhouse -r /usr/caffe-python/requirements.txt
 
 exit 0
